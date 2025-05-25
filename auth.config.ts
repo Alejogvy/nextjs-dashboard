@@ -31,7 +31,7 @@ export const authConfig: NextAuthConfig = {
           throw new Error('Invalid credentials');
         }
 
-        // Solo se retorna lo que quieras que esté disponible en `session.user`
+        // Only what you want to be available in `session.user` is returned.
         return {
           id: user.id,
           name: user.name,
@@ -46,7 +46,7 @@ export const authConfig: NextAuthConfig = {
       const isOnDashboard = nextUrl.pathname.startsWith('/dashboard');
 
       if (isOnDashboard) {
-        return isLoggedIn; // true si está logueado, false si no
+        return isLoggedIn; // true if logged in, false if not
       } else if (isLoggedIn) {
         return Response.redirect(new URL('/dashboard', nextUrl));
       }
